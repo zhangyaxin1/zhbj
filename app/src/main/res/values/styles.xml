@@ -1,0 +1,50 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--抽取style属性-->
+<style name="ImageView_splash">
+    <item name="android:layout_centerInParent">true</item>
+    <item name="android:src">@drawable/splash_horse_newyear</item>
+</style>
+
+
+    <!--android:layout_width="0dp"
+    android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+
+               android:background="@android:color/transparent"
+               android:button="@null"
+               android:text="首页"
+               android:gravity="bottom|center_horizontal"
+               android:drawableTop="@drawable/selector_radiobtn_home"
+               android:checked="false"
+             android:textColor="@drawable/selector_radiobtn_text"-->
+    <style name="RadioButtom_Buttom">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:button">@null</item>
+<item name="android:gravity">bottom|center_horizontal</item>
+        <item name="android:textColor">@drawable/selector_radiobtn_text</item>
+
+
+    </style>
+
+
+
+    
+    <!--设置全屏-->
+    <style name="FullScreen_Theme" parent="@android:style/Theme.Light.NoTitleBar.Fullscreen"></style>
+
+    <!--没有标题-->
+    <style name="Notitle_Theme" parent="@android:style/Theme.Light.NoTitleBar.Fullscreen"></style>
+</resources>

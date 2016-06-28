@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <!--viewpager:在Libraries中找到support-v4-23.4.0,找到classes.jar,下的view下的Viewpager,右键copy reference,在粘贴到xml文件中-->
+<android.support.v4.view.ViewPager
+android:id="@+id/vp_viewpager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+    <!--开始体验按钮-->
+    <Button
+        android:visibility="gone"
+        android:padding="5dp"
+        android:background="@drawable/button_red_normal"
+        android:id="@+id/btn_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="开始体验"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginBottom="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="#FFFFFF"
+        />
+
+    <!--小圆点-->
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="30dp"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll_gray_dots">
+        <!--用代码创建灰点-->
+<ImageView
+    android:id="@+id/iv_red_dots"
+    android:background="@drawable/shap_red_dot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+        </LinearLayout>
+            </RelativeLayout>
+</RelativeLayout>

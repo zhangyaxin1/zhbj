@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--自己定义的圆点-->
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!--oval:圆-->
+
+    <solid android:color="#CCCCCC"/>
+
+    <size
+        android:height="20dp"
+        android:width="20dp"/>
+</shape>

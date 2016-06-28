@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <!--viewpager:在Libraries中找到support-v4-23.4.0,找到classes.jar,下的view下的Viewpager,右键copy reference,在粘贴到xml文件中-->
+<android.support.v4.view.ViewPager
+android:id="@+id/vp_viewpager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+    <!--开始体验按钮-->
+    <Button
+        android:visibility="gone"
+        android:padding="5dp"
+        android:background="@drawable/button_red_normal"
+        android:id="@+id/btn_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="开始体验"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginBottom="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="#FFFFFF"
+        />
+
+    <!--小圆点-->
+<!--属性说明 pageColor:默认颜色  -->
+    <!--fillColor:小红点颜色-->
+    <!--radius:小红点大小-->
+    <!--strokeWidth:边线宽度-->
+    <com.viewpagerindicator.CirclePageIndicator
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        app:pageColor="#D4D0C8"
+        app:fillColor="#B6150D"
+        app:radius="10dp"
+        app:strokeWidth="0dp"
+        android:padding="3dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/circle_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</RelativeLayout>
