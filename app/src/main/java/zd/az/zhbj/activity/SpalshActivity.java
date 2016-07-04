@@ -100,7 +100,7 @@ private AnimationSet  animationSet;
 
                  String isFirstShow = Cache_utils.getString(SpalshActivity.this,"isFirstShow");
 
-                Class<?> page="false".equals(isFirstShow)?Main2Activity.class:GuidActivity.class;
+                Class<?> page="false".equals(isFirstShow)?Main2Activity.class:GuidActivity1.class;
             //打开页面
                 Log.e( "onAnimationEnd: ",isFirstShow);
                 startActivity(new Intent(SpalshActivity.this, page));

@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fl_left_menu"
-    android:orientation="vertical">
-    <!--控件-->
+    android:orientation="vertical"
+    android:background="#000000">
+    <!--控件  5.0的新特性 RecyclerView    -->
+    <!--cacheColorHint 滑动控件的外观处理 用一个透明色处理阴影-->
+    <!--dividerHeight  FENGEXJIAN-->
+ <!--  -->
+    <ListView
+        android:id="@+id/listview_menu"
+        android:dividerHeight="0dp"
+        android:cacheColorHint="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"/>
+
+<!--
 <TextView
     android:id="@+id/tv_left_menu"
     android:layout_width="match_parent"
@@ -13,5 +26,6 @@
     android:text="我是左侧菜单"
     android:textSize="25sp"
     />
+-->
 
-</LinearLayout>
+</FrameLayout>

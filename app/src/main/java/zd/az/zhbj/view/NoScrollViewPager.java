@@ -14,11 +14,22 @@ public class NoScrollViewPager extends ViewPager {
         super(context, attrs);
     }
 
+    /**
+     *
+     * @param ev
+     * @return 作为dispatcheTouchEvent()的条件
+     * true表示拦截掉事件 不予下发 子控件就不能调用onTouchEvent
+     * false表示保持下发
+     */
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return false;//完成事件的下发
+    }
 
     //触摸事件,禁止掉
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        return true;
+        return true;//消费事件不回传
     }
 }
 

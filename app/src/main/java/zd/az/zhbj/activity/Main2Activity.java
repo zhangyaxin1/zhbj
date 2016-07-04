@@ -1,20 +1,28 @@
 package zd.az.zhbj.activity;
 
 import android.app.FragmentTransaction;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import zd.az.zhbj.R;
+import zd.az.zhbj.constant.GloableConstant;
 import zd.az.zhbj.fragment.CenterFragment;
 import zd.az.zhbj.fragment.LeftFragment;
 
 /**
  * 使用了SlidingMenu控件
  */
-public class Main2Activity extends SlidingFragmentActivity{//listActivity
+public class Main2Activity extends SlidingFragmentActivity{
+    private BroadcastReceiver broadcastReceiver;
+
     /**
      * 方法:修改protect 为public
      *
@@ -27,7 +35,45 @@ public class Main2Activity extends SlidingFragmentActivity{//listActivity
         //显示中间的视图,将视图放到SlidingMenu中间
         setContentView(R.layout.activity_main2);
       initview();
+
+        //[1]新建一个广播接收者,接收菜单修改的广播
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+
+                Log.e("kjjj","onReceive_________"+intent.getAction());
+                //[3]逻辑处理
+
+                if (GloableConstant.ACION_SLIDING_DISABLE.equals(intent.getAction())) {
+
+                    getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);//不支持滑动
+                } else if (GloableConstant.ACION_SLIDING_ENABLE.equals(intent.getAction())) {
+
+                    getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);//支持滑动
+                }else if(GloableConstant.ACION_SLIDING_TOOGLE.equals(intent.getAction())){
+                    getSlidingMenu().toggle();
+
+                }
+
+            }
+        };
+
+       //[2]
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(GloableConstant.ACION_SLIDING_DISABLE);
+        intentFilter.addAction(GloableConstant.ACION_SLIDING_ENABLE);
+        intentFilter.addAction(GloableConstant.ACION_SLIDING_TOOGLE);
+        //广播接收器就注册了
+        registerReceiver(broadcastReceiver,intentFilter);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    unregisterReceiver(broadcastReceiver);//移除
+    }
+
     /**
      * 初始化页面的所有控件
      */
