@@ -29,15 +29,14 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
     private TabPageIndicator mTabPageIndicator;
     private ViewPager mViewPager;
 
-//    private  List<NewsListViewPager> mPagers = null;
+  private  List<NewsListViewPager> mPagers = null;
 
     /*
             构造方法
              */
     public NewsMenuDetailPager(Activity activity) {
         super(activity);
-//
-//        mPagers = new ArrayList<NewsListViewPager>();
+       mPagers = new ArrayList<NewsListViewPager>();
     }
 
     /**
@@ -55,22 +54,33 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
         //TabPageIndicator带文字与下划线的指示效果
         mTabPageIndicator = (TabPageIndicator) view.findViewById(R.id.viewpager_tabinidcator);
         mViewPager = (ViewPager) view.findViewById(R.id.menu_deital_pager_viewpager);
-//       mTabPageIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//           @Override
-//           public void onPageSelected(int position) {
+       mTabPageIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+           /**
+            * 选中新闻频道 可以在此加载数据
+            * @param position
+            */
+           @Override
+           public void onPageSelected(int position) {
+
+//            //获取加载新闻页面
+//          NewsListViewPager newsListViewPager =  mPagers.get(position);
+//              LeftMenuData.MenuData.CategoryData categoryData = categorys.get(position);
 //
-//               LoadNewsListPagerData(position);
-//           }
-//
-//           @Override
-//           public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//           }
-//           @Override
-//           public void onPageScrollStateChanged(int state) {
-//
-//           }
-//       });
+
+
+               LoadNewsListPagerData(position);
+           }
+
+           @Override
+           public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+           }
+           @Override
+           public void onPageScrollStateChanged(int state) {
+
+           }
+       });
         return view;
     }
 
@@ -78,12 +88,13 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
      * 加载新闻页面数据
      * @param position
      */
-//    private void LoadNewsListPagerData(int position) {
-//        NewsListViewPager newsListViewPager =  mPagers.get(position);
-//        LeftMenuData.MenuData.CategoryData categoryData = categorys.get(position);
-//        //相对地址://10008/list_1.json
-////        newsListViewPager.initData(categoryData.url);
-//    }
+    private void LoadNewsListPagerData(int position) {
+        //获取加载新闻页面
+        NewsListViewPager newsListViewPager =  mPagers.get(position);
+        LeftMenuData.MenuData.CategoryData categoryData = categorys.get(position);
+//        相对地址://10008/list_1.json
+        newsListViewPager.initData(categoryData.url);
+    }
 
     private List<LeftMenuData.MenuData.CategoryData> categorys = new ArrayList<LeftMenuData.MenuData.CategoryData>();
     //获取数据
@@ -102,12 +113,12 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
         mTabPageIndicator.setViewPager(mViewPager);
 
         //重写adpter的getPageTitle方法 拿到文字
-//for (int i=0;i<categorys.size();i++){
-//
-//NewsListViewPager newsListViewPager =new NewsListViewPager(mActivity);
-//    mPagers.add(newsListViewPager);
-//}
-//
+for (int i=0;i<categorys.size();i++){
+
+NewsListViewPager newsListViewPager =new NewsListViewPager(mActivity);
+    mPagers.add(newsListViewPager);
+}
+
 //        if(categorys.size()>0) {
 //            LoadNewsListPagerData(0);
 //        }
@@ -143,19 +154,19 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
 //            return super.instantiateItem(container, position);
-
-            TextView textView =new TextView(mActivity);
-       LeftMenuData.MenuData.CategoryData categoryData = categorys.get(position);
-            textView.setText("当前频道为"+categoryData.title);
-      textView.setGravity(Gravity.CENTER);
-            textView.setBackgroundColor(Color.BLUE);
-            //显示在滑动控件上面
-container.addView(textView);
-//        NewsListViewPager newsListViewPager = mPagers.get(position);
-//            //添加新闻列表页面
-//           View view = newsListViewPager.mRootView;
-//            container.addView(view);
-            return textView;
+//
+//            TextView textView =new TextView(mActivity);
+//       LeftMenuData.MenuData.CategoryData categoryData = categorys.get(position);
+//            textView.setText("当前频道为"+categoryData.title);
+//      textView.setGravity(Gravity.CENTER);
+//            textView.setBackgroundColor(Color.BLUE);
+//            //显示在滑动控件上面
+//container.addView(textView);
+        NewsListViewPager newsListViewPager = mPagers.get(position);
+            //添加新闻列表页面
+           View view = newsListViewPager.mRootView;
+            container.addView(view);
+            return view;
         }
 
         /**
