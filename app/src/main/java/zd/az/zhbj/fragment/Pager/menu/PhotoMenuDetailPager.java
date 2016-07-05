@@ -22,8 +22,6 @@ public class PhotoMenuDetailPager extends BaseMenuDetailPager{
 
     @Override
     public View initview() {
-
-
         TextView contentView = new TextView(mActivity);
         contentView.setText("四级页面:组图");
         contentView.setBackgroundColor(Color.BLUE);

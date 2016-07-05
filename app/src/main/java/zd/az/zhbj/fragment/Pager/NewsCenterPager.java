@@ -41,9 +41,9 @@ public class NewsCenterPager extends BasePager{
         /**
          * 使用list管理四个四级界面
          */
-       mMenuPagers = new ArrayList<BaseMenuDetailPager>();
+       mMenuPagers = new ArrayList<>();
 
-     mMenuPagers.add(new NewsMenuDetailPager(mActivity));//新闻 许多报道
+        mMenuPagers.add(new NewsMenuDetailPager(mActivity));//新闻 许多报道
         mMenuPagers.add(new TopicMenuDetailPager(mActivity));//专题
         mMenuPagers.add(new PhotoMenuDetailPager(mActivity));//组图
         mMenuPagers.add(new InteractMenuDetailPager(mActivity));//交互

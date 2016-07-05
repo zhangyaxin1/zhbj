@@ -18,6 +18,13 @@ public class NewsListData {
     public NewsData  data;
     public int  retcode;
 
+    @Override
+    public String toString() {
+        return "NewsListData{" +
+                "data=" + data +
+                ", retcode=" + retcode +
+                '}';
+    }
 
     /**
      * 新闻数据
@@ -26,9 +33,21 @@ public class NewsListData {
         public  String countcommenturl;
         public  String more;
         public String title;
-        public List<NewItem> news =new ArrayList<NewItem>();
+        public List<NewItem> news =new ArrayList<>();
         public List<TopicItem> topic =new ArrayList<TopicItem>();
         public List<TopNewsItem> topnews =new ArrayList<TopNewsItem>();
+
+        @Override
+        public String toString() {
+            return "NewsData{" +
+                    "countcommenturl='" + countcommenturl + '\'' +
+                    ", more='" + more + '\'' +
+                    ", title='" + title + '\'' +
+                    ", news=" + news +
+                    ", topic=" + topic +
+                    ", topnews=" + topnews +
+                    '}';
+        }
     }
 
 
@@ -66,8 +85,17 @@ public class NewsListData {
      * 一条主题纪录
      */
     public  static  class TopicItem {
+
+        public String description;
+        public int id;
+        public String listimage;
+        public int sort;
+        public String title;
+        public String url;
+
         @Override
         public String toString() {
+
             return "TopicItem{" +
                     "description='" + description + '\'' +
                     ", id=" + id +
@@ -78,12 +106,7 @@ public class NewsListData {
                     '}';
         }
 
-        public String description;
-        public int id;
-        public String listimage;
-        public int sort;
-        public String title;
-        public String url;
+
 
     }
 
@@ -92,6 +115,20 @@ public class NewsListData {
      * 一条头条纪录
      */
     public  static  class TopNewsItem {
+
+
+        public boolean comment;
+        public  String commentlist;
+        public String commenturl;
+        public  int id;
+        public  String pubdate;
+        public String title;
+        public String topImage;
+        public String type;
+        public String url;
+
+
+
         @Override
         public String toString() {
             return "TopNewsItem{" +
@@ -106,17 +143,6 @@ public class NewsListData {
                     ", url='" + url + '\'' +
                     '}';
         }
-
-        public boolean comment;
-        public  String commentlist;
-        public String commenturl;
-        public  int id;
-        public  String pubdate;
-        public String title;
-        public String topImage;
-        public String type;
-        public String url;
-
     }
 
 }

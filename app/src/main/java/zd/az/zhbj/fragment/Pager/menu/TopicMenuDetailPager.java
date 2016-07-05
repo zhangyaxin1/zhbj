@@ -23,7 +23,6 @@ public class TopicMenuDetailPager extends BaseMenuDetailPager{
     @Override
     public View initview() {
 
-
         TextView contentView = new TextView(mActivity);
         contentView.setText("四级页面:专题");
         contentView.setBackgroundColor(Color.BLUE);

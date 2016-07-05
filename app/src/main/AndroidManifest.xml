@@ -23,6 +23,7 @@
         <activity
             android:name=".activity.SpalshActivity"
             android:theme="@style/FullScreen_Theme" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +37,6 @@
 
         <activity android:name=".activity.Main2Activity"
             android:theme="@style/Theme.PageIndicatorDefaults">
-
 
 
         </activity>

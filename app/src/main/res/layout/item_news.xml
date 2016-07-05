@@ -2,18 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
 >
 <!--图片-->
-    <ImageView
-        android:layout_margin="15dp"
-        android:layout_width="122dp"
-        android:layout_height="92dp"
-        android:src="@drawable/news_pic_default"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/iv_icon"
-        />
+<ImageView android:layout_margin="15dp"
+    android:layout_width="122dp"
+    android:layout_height="92dp"
+    android:src="@drawable/news_pic_default"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="10dp"
+    android:id="@+id/iv_icon" />
 
     <!--标题-->
     <TextView
@@ -43,6 +40,6 @@
         android:textColor="#898989"
         android:text="日期"
         />
-
-   
 </RelativeLayout>
+<!--
+</RelativeLayout>&ndash;&gt;-->

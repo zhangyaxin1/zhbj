@@ -29,14 +29,14 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
     private TabPageIndicator mTabPageIndicator;
     private ViewPager mViewPager;
 
-  private  List<NewsListViewPager> mPagers = null;
+  private  List<NewsListPager> mPagers = null;
 
     /*
             构造方法
              */
     public NewsMenuDetailPager(Activity activity) {
         super(activity);
-       mPagers = new ArrayList<NewsListViewPager>();
+       mPagers = new ArrayList<NewsListPager>();
     }
 
     /**
@@ -66,7 +66,6 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
 //            //获取加载新闻页面
 //          NewsListViewPager newsListViewPager =  mPagers.get(position);
 //              LeftMenuData.MenuData.CategoryData categoryData = categorys.get(position);
-//
 
 
                LoadNewsListPagerData(position);
@@ -90,7 +89,7 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
      */
     private void LoadNewsListPagerData(int position) {
         //获取加载新闻页面
-        NewsListViewPager newsListViewPager =  mPagers.get(position);
+        NewsListPager newsListViewPager =  mPagers.get(position);
         LeftMenuData.MenuData.CategoryData categoryData = categorys.get(position);
 //        相对地址://10008/list_1.json
         newsListViewPager.initData(categoryData.url);
@@ -115,13 +114,13 @@ public class NewsMenuDetailPager extends BaseMenuDetailPager{
         //重写adpter的getPageTitle方法 拿到文字
 for (int i=0;i<categorys.size();i++){
 
-NewsListViewPager newsListViewPager =new NewsListViewPager(mActivity);
+NewsListPager newsListViewPager =new NewsListPager(mActivity);
     mPagers.add(newsListViewPager);
 }
 
-//        if(categorys.size()>0) {
-//            LoadNewsListPagerData(0);
-//        }
+        if(categorys.size()>0) {
+            LoadNewsListPagerData(0);
+        }
 
 
     }
@@ -162,7 +161,7 @@ NewsListViewPager newsListViewPager =new NewsListViewPager(mActivity);
 //            textView.setBackgroundColor(Color.BLUE);
 //            //显示在滑动控件上面
 //container.addView(textView);
-        NewsListViewPager newsListViewPager = mPagers.get(position);
+        NewsListPager newsListViewPager = mPagers.get(position);
             //添加新闻列表页面
            View view = newsListViewPager.mRootView;
             container.addView(view);

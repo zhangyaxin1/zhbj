@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <!-- 图片 -->
+
+    <ImageView
+        android:layout_margin="8dp"
+        android:id="@+id/iv_icon"
+        android:layout_width="122dp"
+        android:layout_height="92dp"
+        android:scaleType="centerCrop"
+        android:layout_centerVertical="true"
+        android:src="@drawable/news_pic_default" />
+    <!-- 标题 -->
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="2"
+        android:text="标题"
+        android:textSize="22sp" />
+    <!-- 日期 -->
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_below="@id/tv_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="日期"
+        android:textColor="#898989"
+        android:textSize="18sp" />
+
+</RelativeLayout>
