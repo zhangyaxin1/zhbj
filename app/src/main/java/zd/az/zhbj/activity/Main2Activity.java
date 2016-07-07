@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
+import android.widget.Toast;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -42,7 +43,7 @@ public class Main2Activity extends SlidingFragmentActivity{
             public void onReceive(Context context, Intent intent) {
 
 
-                Log.e("kjjj","onReceive_________"+intent.getAction());
+//                Log.e("kjjj","onReceive_________"+intent.getAction());
                 //[3]逻辑处理
 
                 if (GloableConstant.ACION_SLIDING_DISABLE.equals(intent.getAction())) {
@@ -55,6 +56,11 @@ public class Main2Activity extends SlidingFragmentActivity{
                     getSlidingMenu().toggle();
 
                 }
+                else if(GloableConstant.ACION_CLEAR_ALL_RECEVERS.equals(intent.getAction())){
+                    Toast.makeText(getApplicationContext(),"清理广播接收器了",Toast.LENGTH_SHORT).show();
+                    //移除广播接收器
+                    unregisterReceiver(this);
+                }
 
             }
         };
@@ -64,6 +70,7 @@ public class Main2Activity extends SlidingFragmentActivity{
         intentFilter.addAction(GloableConstant.ACION_SLIDING_DISABLE);
         intentFilter.addAction(GloableConstant.ACION_SLIDING_ENABLE);
         intentFilter.addAction(GloableConstant.ACION_SLIDING_TOOGLE);
+        intentFilter.addAction(GloableConstant.ACION_CLEAR_ALL_RECEVERS);
         //广播接收器就注册了
         registerReceiver(broadcastReceiver,intentFilter);
     }
@@ -71,7 +78,12 @@ public class Main2Activity extends SlidingFragmentActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-    unregisterReceiver(broadcastReceiver);//移除
+//    unregisterReceiver(broadcastReceiver);//移除
+
+        Intent cleanAllBroad = new Intent();
+        cleanAllBroad.setAction(GloableConstant.ACION_CLEAR_ALL_RECEVERS);
+        sendBroadcast(cleanAllBroad);
+
     }
 
     /**

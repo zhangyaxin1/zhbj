@@ -45,7 +45,7 @@ public class NewsCenterPager extends BasePager{
 
         mMenuPagers.add(new NewsMenuDetailPager(mActivity));//新闻 许多报道
         mMenuPagers.add(new TopicMenuDetailPager(mActivity));//专题
-        mMenuPagers.add(new PhotoMenuDetailPager(mActivity));//组图
+        mMenuPagers.add(new PhotoMenuDetailPager(mActivity,mIVRight));//组图
         mMenuPagers.add(new InteractMenuDetailPager(mActivity));//交互
 
         //注册一个广播接收器,发送者是二级页面left页面的Intent
@@ -61,11 +61,15 @@ public class NewsCenterPager extends BasePager{
             public void onReceive(Context context, Intent intent) {
 //                Toast.makeText(mActivity,"ji"+intent.getAction(),0).show();
                 //获取数据
-
-
-
                 //以下是显示标题与内容的
+
                 Toast.makeText(mActivity,"菜单信号:"+intent.getAction(),Toast.LENGTH_SHORT).show();
+                if(intent.getAction().equals(GloableConstant.ACION_CLEAR_ALL_RECEVERS)) {
+                    Toast.makeText(mActivity,"清理广播接收者了",Toast.LENGTH_SHORT).show();
+
+                    mActivity.unregisterReceiver(this);
+                }
+
                 mIVRight.setVisibility(View.GONE);
                BaseMenuDetailPager currpager =null;
 
@@ -78,7 +82,7 @@ public class NewsCenterPager extends BasePager{
                     //设置给新闻频道页面
               LeftMenuData data = (LeftMenuData) intent.getSerializableExtra("data");
 
-                   Log.i("sdsd","在四级页面获取数据++++"+data.toString());
+//                   Log.i("sdsd","在四级页面获取数据++++"+data.toString());
                     //获取服务端数据
                     NewsMenuDetailPager  newpager = (NewsMenuDetailPager) currpager;
                     newpager.initData(data);
@@ -93,8 +97,10 @@ public class NewsCenterPager extends BasePager{
                 }
               else  if(intent.getAction().equals(GloableConstant.ACION_LEFT_MENU_PHOTO)){
                     mTvTitle.setText("组图");
-                    mIVRight.setVisibility(View.VISIBLE);
                     currpager=mMenuPagers.get(2);
+                    currpager.initData(null);
+                    mIVRight.setVisibility(View.VISIBLE);
+
                 }
 
 
@@ -105,12 +111,12 @@ public class NewsCenterPager extends BasePager{
                 //添加新的视图
                 mContentView.addView(pageView);
 
-                Log.d("ssds","+++++++++"+mActivity.toString());
+//                Log.d("ssds","+++++++++"+mActivity.toString());
                 //每个页面(二级开始的上下文都是MainActivity)
                 Main2Activity main2Activity = (Main2Activity) mActivity;
                 //侧滑控件
          SlidingMenu slidingMenu = main2Activity.getSlidingMenu();
-                Log.d("kjdjkj","关闭侧滑菜单");
+//                Log.d("kjdjkj","关闭侧滑菜单");
                 //合上菜单,即显示中间内容
                 slidingMenu.showContent();
 
@@ -124,6 +130,7 @@ public class NewsCenterPager extends BasePager{
         intentFilter.addAction(GloableConstant.ACION_LEFT_MENU_TOPIC);
         intentFilter.addAction(GloableConstant.ACION_LEFT_MENU_PHOTO);
         intentFilter.addAction(GloableConstant.ACION_LEFT_MENU_INTERACT);
+        intentFilter.addAction(GloableConstant.ACION_CLEAR_ALL_RECEVERS);
 //注册信号
         mActivity.registerReceiver(broadcastReceiver,intentFilter);
 

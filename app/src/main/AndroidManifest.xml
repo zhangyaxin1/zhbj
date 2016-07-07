@@ -35,6 +35,11 @@
             android:name=".activity.GuidActivity1"
             android:theme="@style/Notitle_Theme" />
 
+        <activity
+            android:name=".activity.NewDetailActivity"
+            android:theme="@style/Notitle_Theme" />
+
+
         <activity android:name=".activity.Main2Activity"
             android:theme="@style/Theme.PageIndicatorDefaults">
 

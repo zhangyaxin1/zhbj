@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+ <RelativeLayout
+     android:layout_width="match_parent"
+     android:background="#c80000"
+     android:layout_height="160dp"
+     >
  <!--轮播图-->
-<android.support.v4.view.ViewPager
+<zd.az.zhbj.view.InnerViewPager
  android:id="@+id/vp_ViewPager_topnew"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:background="#c80000"
+    android:layout_height="match_parent"
     />
+
+ <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="30dp"
+     android:layout_alignParentBottom="true"
+     android:background="@drawable/progress_dialog_bg"
+     >
+  <TextView
+      android:id="@+id/tv_tt"
+      android:gravity="center"
+      android:layout_centerVertical="true"
+      android:textColor="#ffffff"
+      android:textSize="20sp"
+      android:layout_marginLeft="10dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="头条标题"
+
+      />
+
+ <!--小圆点-->
+ <!--属性说明 pageColor:默认颜色  -->
+ <!--fillColor:小红点颜色-->
+ <!--radius:小红点大小-->
+ <!--strokeWidth:边线宽度-->
+ <com.viewpagerindicator.CirclePageIndicator
+     android:layout_centerVertical="true"
+     android:id="@+id/circle_pageindicator"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:padding="3dp"
+     app:radius="3dp"
+     app:pageColor="#D4D0C8"
+     app:fillColor="#B6150D"
+     app:strokeWidth="0dp"
+     android:layout_alignParentRight="true"
+     />
+ </RelativeLayout>
+
+ </RelativeLayout>
 </RelativeLayout>

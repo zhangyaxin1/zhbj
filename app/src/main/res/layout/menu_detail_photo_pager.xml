@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--列表-->
+    
+    <ListView
+
+        android:id="@+id/listview_photo"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+    <!--网格-->
+
+    <GridView
+        android:visibility="gone"
+        android:numColumns="2"
+        android:background="#5b7aaf"
+        android:id="@+id/gridview_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></GridView>
+    
+    
+</RelativeLayout>

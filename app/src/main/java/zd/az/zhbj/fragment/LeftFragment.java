@@ -2,6 +2,7 @@ package zd.az.zhbj.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -195,8 +196,29 @@ public class LeftFragment extends BaseFragment {
 
         adapter = new MenuAdapter();
         mListView.setAdapter(adapter);
-        switchMenuItem(0);
+        //    switchMenuItem(0);
 
+//        new Thread(){
+//            public void run(){
+//                try {
+//                    Thread.sleep(500);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            };
+//
+//
+//        }.start();
+
+//        new Handler().postDelayed(r:要求执行的代码,delayMillis:延时时间);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                switchMenuItem(0);
+            }
+        }, 500);//handleMessage(0)  r.run
     }
 
     private class MenuAdapter extends BaseAdapter {
@@ -208,7 +230,7 @@ public class LeftFragment extends BaseFragment {
          */
         @Override
         public int getCount() {
-            Log.e("hjiji", "+++++++" + mLeftMenuData.data.size());
+//            Log.e("hjiji", "+++++++" + mLeftMenuData.data.size());
             return mLeftMenuData.data.size();
         }
 
@@ -232,7 +254,7 @@ public class LeftFragment extends BaseFragment {
 
             //1.数据
             LeftMenuData.MenuData menudata = mLeftMenuData.data.get(position);
-            Log.d("获取到的Item数据", menudata + "");
+//            Log.d("获取到的Item数据", menudata + "");
             ViewHolderMunu holder = null;
             //2视图
             //-----startView

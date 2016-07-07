@@ -66,13 +66,13 @@ public class NewsListViewPager extends  BaseMenuDetailPager {
     /**
      * 列表的适配器
      */
-    private class NewsItemAdapter extends BaseAdapter {
+    class NewsItemAdapter extends BaseAdapter {
 
 
         @Override
         public int getCount() {
 
-            Log.e("新闻的条数","+++++++"+newsList.size());
+//            Log.e("新闻的条数","+++++++"+newsList.size());
             return newsList.size();
 
         }
@@ -206,7 +206,7 @@ public class NewsListViewPager extends  BaseMenuDetailPager {
     private void processData(String json) {
 
         //获取服务端数据进行解析
-        Log.i("qd", "processData________" + json);
+//        Log.i("qd", "processData________" + json);
 
         Gson gson = new Gson();
         NewsListData data = gson.fromJson(json, NewsListData.class);
@@ -216,7 +216,7 @@ public class NewsListViewPager extends  BaseMenuDetailPager {
         newsList.addAll(data.data.news);
 //        //刷新列表
         mNewsItemAdapter.notifyDataSetChanged();
-        Log.i("kijji","获取新闻页面数据"+data.toString());
+//        Log.i("kijji","获取新闻页面数据"+data.toString());
     }
 
 }

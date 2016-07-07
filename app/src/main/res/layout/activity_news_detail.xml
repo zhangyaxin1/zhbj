@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="zd.az.zhbj.activity.Main2Activity">
+
+
+
+    <!--webview-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include">
+
+     <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         ></WebView>
+
+    <ProgressBar
+        android:indeterminateDrawable="@drawable/procress_roate"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:id="@+id/progressBar_percent"
+            android:max="100"
+            android:progress="0"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <!--标题栏-->
+    <!--引用-->
+    <include
+        layout="@layout/view_titlebar"
+        android:id="@+id/include" />
+
+</RelativeLayout>

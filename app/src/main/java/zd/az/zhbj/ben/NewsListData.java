@@ -123,7 +123,7 @@ public class NewsListData {
         public  int id;
         public  String pubdate;
         public String title;
-        public String topImage;
+        public String topimage;
         public String type;
         public String url;
 
@@ -138,7 +138,7 @@ public class NewsListData {
                     ", id=" + id +
                     ", pubdate='" + pubdate + '\'' +
                     ", title='" + title + '\'' +
-                    ", topImage='" + topImage + '\'' +
+                    ", topImage='" + topimage + '\'' +
                     ", type='" + type + '\'' +
                     ", url='" + url + '\'' +
                     '}';

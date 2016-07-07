@@ -15,6 +15,9 @@ public class GloableConstant {
     public static  final String SERVER_HOST = "http://192.168.1.131:8080/zhbj03/";
 //左侧菜单地址
     public static  final String URL_LEFT_MENU_DATA = "/categories.json";
+
+    //组图地址
+    public static  final String  URL_PHOTO ="/photos/photos_1.json" ;
 //左侧菜单的广播
 
     //新闻
@@ -25,5 +28,7 @@ public class GloableConstant {
     public static  final String ACION_LEFT_MENU_PHOTO = "ACION_LEFT_MENU_PHOTO";
 //交互
     public static  final String ACION_LEFT_MENU_INTERACT = "ACION_LEFT_MENU_INTERACT";
+//只要接收到该广播的接收器  将从上下文移除
+    public static  final String ACION_CLEAR_ALL_RECEVERS= "ACION_CLEAR_ALL_RECEVER";
 }
 
